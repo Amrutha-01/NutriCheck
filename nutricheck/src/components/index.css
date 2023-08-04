@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Oswald&display=swap');
+body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyRXVMs9c8MI1h5lLwW8s3K54RkbNyy4ycVQ_1nJlrQ_xXq1LNFloUnIP09v3SGKcEbqU&usqp=CAU");
+    /* background-image:full; */
+    font-family: 'Alkatra';
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    color: rgb(12, 101, 12);
+    font-family: 'Alkatra', cursive;
+    font-size: xx-large;
+}
+main h1{
+    color: #166816;
+}
+#cards-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header img{
+    border-radius: 80%;
+    height: 4em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+.search{
+    display: flex;
+    /* width:60%; */
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+}
+#search-bar{
+    display: block;
+    width: 40vw;
+    height: 5vh;
+    margin-right:2px;
+    margin-bottom: 3%;
+}
+#recipe{
+    display: block;
+    width: 40vw;
+}
+.search-button{
+    display:block;
+    height: 6vh;
+    width: 5vw;
+    background-color: #5d9b5d;
+    color: white;
+    border: none;
+    border-radius: 2px;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    display: block;
+}
+.cards-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card {
+    margin:1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 18%; 
+    color: white;
+    background-color: #117811;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 10%;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .card img {
+    margin-top: 15px;
+    width: 70%;
+  }
+  .card h3 {
+    margin: 20px;
+    font-size: 17px;
+    text-align: center;
+  }
+  
+  .card p {
+    margin: 10px;
+    font-size: 18px;
+    text-align: center;
+    color: #777;
+  }
+  
+  .card button {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 13px;
+    color: white;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0,0,0.1);
+    cursor: pointer;
+  /* transition: background-color 0.3s ease-in-out; */
+}
+
+.card button:hover {
+  background-color: #0d8beb;
+}
+  
+footer{
+    padding: 2%;
+    margin: 0%;
+    display: flex;
+    background-color: rgb(52, 51, 51);
+    color: white;
+}
+footer #aboutUs{
+    max-width: 30%;
+    margin-right: 3%;
+}
+footer #socials{
+    margin-right: 3%;
+    margin-left: 3%;
+    min-width: 13%
+}
+footer #socials a{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+footer #socials i{
+    color:white;
+}
+footer #socials i:hover{
+    font-size:xx-large;
+}
+footer #support{
+    min-width: 10%;
+    padding-left: 3%;
+}
+footer #support a{
+    text-decoration: none;
+    padding-left: 0%;
+    color: white;
+}
+footer #support a:hover{
+    font-size: larger;
+}
+footer #support ul{
+    list-style: none;
+}
+footer #contactUs{
+    min-width: 15%;
+}
