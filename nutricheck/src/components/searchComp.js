@@ -1,29 +1,22 @@
 import React, { useState } from "react";
-import "./index.css";
-// import CardsPage from "./CardsPage.JS";
-import SearchResultPage from "./searchResultPage.js";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function SearchComp() {
-  // const navigate = useNavigate();
-  const [title, setTitle] = useState("");
+function SearchComp({ onSubmit }) {
+  const navigate = useNavigate();
+  const [inputTitle, setInputTitle] = useState("");
 
-  function handleChange(event) {
-    setTitle(event.target.value);
-  }
+  const handleChange = (event) => {
+    setInputTitle(event.target.value);
+  };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("working");
-    fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${title}&apiKey=5fcf67dd875a486f98ab89401623bd52`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-    // navigate("/searchResultPage");
-  }
+    if (inputTitle.trim() !== "") {
+      onSubmit(inputTitle);
+      navigate("/searchResultPage");
+    }
+  };
+
   return (
     <header>
       <img
@@ -38,23 +31,16 @@ function SearchComp() {
             id="search-bar"
             name="search-bar"
             placeholder="Name of the dish"
-            value={title}
+            value={inputTitle}
             onChange={handleChange}
           />
-          {/* <label htmlFor="recipe">Ingrediants</label>
-          <textarea name="recipe" id="recipe" cols="30" rows="10"></textarea> */}
-          <button
-            type="submit"
-            className="search-button"
-            // onClick={() => navigate("/SearchResultPage")}
-            onClick={handleSubmit}
-          >
+          <button type="submit" className="search-button">
             Search
           </button>
-          {/* <Link to="/searchResult" className="search-button">Search</Link> */}
         </form>
       </div>
     </header>
   );
 }
+
 export default SearchComp;

@@ -2,7 +2,7 @@
 body{
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyRXVMs9c8MI1h5lLwW8s3K54RkbNyy4ycVQ_1nJlrQ_xXq1LNFloUnIP09v3SGKcEbqU&usqp=CAU");
     /* background-image:full; */
-    font-family: 'Alkatra';
+    /* font-family: 'Alkatra'; */
     display: block;
     justify-content: center;
     align-items: center;
@@ -90,6 +90,7 @@ main{
   .card img {
     margin-top: 15px;
     width: 70%;
+    height: 70%;
   }
   .card h3 {
     margin: 20px;
@@ -115,6 +116,11 @@ main{
     box-shadow: 0 2px 8px rgba(0, 0,0,0.1);
     cursor: pointer;
   /* transition: background-color 0.3s ease-in-out; */
+}
+
+.VMimgsum{
+    display: flex;
+    flex-direction: row;
 }
 
 .card button:hover {

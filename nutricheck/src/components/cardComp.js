@@ -1,38 +1,44 @@
 import React, { useEffect, useState } from "react";
 import CardItems from "./cardItems";
-import "./index.css";
 
-function CardComp() {
-  const imagUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
-  // const url=`https://api.spoonacular.com/recipes/${key}/information?includeNutrition=false`
-  const [cards, setcards] = useState([]);
+function CardComp({ onViewMoreClick }) {
+  const ids = [
+    636278, 640314, 637761, 1082038, 7657, 654959, 648506, 640323, 663252,
+    643061, 658482, 654495, 654059, 1697815, 636488, 69095,
+  ];
+  const [cards, setCards] = useState([]);
+
   useEffect(() => {
-    fetch(imagUrl)
-      //extracts the JSON data from the response object
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data.meals);
-        setcards(data.meals);
-      })
-      .catch((error) => console.log(error));
+    const fetchData = () => {
+      const promises = ids.map((id) =>
+        fetch(
+          `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=a98d8cde9d6e41ff91d3715cde7148f4`
+        )
+          .then((response) => response.json())
+          .catch((error) => {
+            console.error(`Error fetching data for ID ${id}:`, error);
+            return null;
+          })
+      );
+
+      Promise.all(promises).then((dataArray) => {
+        const fetchedCards = dataArray.filter((data) => data && data.id);
+        setCards(fetchedCards);
+      });
+    };
+
+    fetchData();
   }, []);
-  // useEffect(() => {
-  //   fetch("https://api.spoonacular.com/recipes/analyze")
-  //     //extracts the JSON data from the response object
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       // setcards(data.meals);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+
   return (
     <main className="cards-container">
       {cards.map((meal) => (
         <CardItems
-          url={meal.strMealThumb}
-          title={meal.strMeal}
-          key={meal.idMeal}
+          url={meal.image}
+          title={meal.title}
+          id={meal.id}
+          key={meal.id}
+          // onViewMoreClick={onViewMoreClick}
         />
       ))}
     </main>

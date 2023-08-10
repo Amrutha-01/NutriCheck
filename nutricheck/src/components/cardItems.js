@@ -1,14 +1,17 @@
 import React from "react";
-import "./index.css";
+import { Link } from "react-router-dom";
 
-function CardItems(props) {
+function CardItems({ url, title, onViewMoreClick }) {
   return (
     <div className="card">
-      <img src={props.url} />
-      <h2>{props.title}</h2>
-      <button>View More</button>
+      <img src={url} alt={title} />
+      <h2>{title}</h2>
+      <Link to={`/viewMoreData?title=${encodeURIComponent(title)}`} >
+        <button>View More</button>
+      </Link>
     </div>
   );
 }
 
 export default CardItems;
+
