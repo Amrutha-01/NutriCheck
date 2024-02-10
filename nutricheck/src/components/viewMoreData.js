@@ -55,10 +55,10 @@ function ViewMoreData() {
     <div className="VMclass">
       <h1>{VMapiData.title}</h1>
       <div className="VMimgsum">
-      <img src={VMapiData.image} alt={VMapiData.title} />
-      <p id="summary"></p>
+        <img src={VMapiData.image} alt={VMapiData.title} />
+        <p id="summary"></p>
       </div>
-      <img src={nutriImgUrl} alt="Nutrition" />
+      <img src={nutriImgUrl} alt="Nutrition" className="chart"/>
     </div>
   );
 }
